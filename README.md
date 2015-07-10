@@ -1,2 +1,2 @@
 # ruthless
-First run at learning MEAN
+First run at learning the MEAN stack
