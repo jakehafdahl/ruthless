@@ -2,7 +2,7 @@
   "name": "ruthless",
   "version": "1.0.0",
   "description": "Trying out the MEAN stack",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/jakehafdahl/ruthless/issues"
   },
-  "homepage": "https://github.com/jakehafdahl/ruthless#readme"
+  "homepage": "https://github.com/jakehafdahl/ruthless#readme",
+  "dependencies": {
+    "body-parser": "^1.12.0",
+    "bower": "^1.4.1",
+    "express": "^4.8.7",
+    "mongoose": "^4.0.6"
+  }
 }

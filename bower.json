@@ -1,0 +1,16 @@
+{
+  "name": "ruthless",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jakehafdahl/ruthless",
+  "authors": [
+    "Jacob Hafdahl"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.2",
+    "angular-resource": "~1.4.2",
+    "angular-ui-router": "~0.2.15",
+    "angular-bootstrap": "~0.13.0",
+    "jQuery": "~2.1.4"
+  }
+}
