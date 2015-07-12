@@ -11,13 +11,10 @@ app.use(express.static(  __dirname + '/static'));
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json()); // Body parser use JSON data
 app.use(function(req,res,next){
-    res.header('Access-Control-Allow-Origin', '*'); // We can access from anywhere
+  res.header('Access-Control-Allow-Origin', '*'); // We can access from anywhere
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-    next();
-});
-app.get('/', function(req, res){
-    res.sendfile('index.html' );
+  next();
 });
 
 var Schema = mongoose.Schema;
