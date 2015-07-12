@@ -23,6 +23,17 @@
     "body-parser": "^1.12.0",
     "bower": "^1.4.1",
     "express": "^4.8.7",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "less-middleware": "^2.0.1",
     "mongoose": "^4.0.6"
+  },
+  "devDependencies": {
+    "jasmine": "^2.3.1",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.12.37",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-cli": "^0.1.0",
+    "karma-jasmine": "^0.3.6"
   }
 }

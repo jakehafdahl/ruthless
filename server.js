@@ -3,8 +3,11 @@ var app = express();
 var http = require('http').Server(app); // Http server
 var bodyParser = require("body-parser"); // Require Body parser module
 var mongoose = require('mongoose'); // Require Mongoose for MongoDB access
+var less_middleware = require('less-middleware'); //LESS support for express
 
-app.use(express.static('static'));
+app.use(less_middleware( __dirname + '/static'));
+app.use(express.static(  __dirname + '/static'));
+
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json()); // Body parser use JSON data
 app.use(function(req,res,next){
