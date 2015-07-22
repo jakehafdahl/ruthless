@@ -11,7 +11,8 @@
             .state('home', {
                 url: "/Home",
                 templateUrl: "app/home/home.html",
-                controller: "homeController"
+                controller: "homeController",            
+                controllerAs: 'homeView'
             });
 	}])	
 }(angular.module('ruthless')))

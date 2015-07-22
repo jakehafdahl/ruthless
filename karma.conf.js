@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Sun Jul 12 2015 11:24:45 GMT-0500 (CDT)
+// Generated on Wed Jul 29 2015 13:03:58 GMT-0500 (CDT)
 
 module.exports = function(config) {
   config.set({
@@ -15,10 +15,17 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '../static/bower_components/angular/angular.js',
-      '../static/bower_components/angular-mocks/angular-mocks.js',
-      '../static/app/**/*.js',
-      'unit/*.js'
+      'static/bower_components/angular/angular.js',
+      'static/bower_components/angular-ui-router/release/angular-ui-router.js',
+      'static/bower_components/angular-bootstrap/ui-bootstrap.js',
+      'static/bower_components/angular-resource/angular-resource.js',
+      'static/bower_components/angular-mocks/angular-mocks.js',
+      'static/app/config/ruthless.app.js',
+      'static/app/config/routes.js',
+      'static/app/config/serverConfig.js',
+      'static/app/home/*.js',
+      'static/app/shared/*.js',
+      'test/unit/*.js'
     ],
 
 
