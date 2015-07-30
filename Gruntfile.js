@@ -4,11 +4,11 @@ module.exports = function(grunt) {
    
     pkg: grunt.file.readJSON('package.json'),
     karma: {
-		  options: {        
-			 configFile: 'karma.conf.js'
+      options: {
+       configFile: 'karma.conf.js' 
       },
-      unit: {
-        singleRun: true
+      unit: {        
+			 singleRun: true
       }
 	 }
   });
@@ -16,5 +16,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('default', ['karma']);
+  grunt.registerTask('test', ['karma']);
 
 };

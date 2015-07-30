@@ -13,7 +13,7 @@ var registrationService = require('./app/registerService')
 app.use(less_middleware( __dirname + '/static'));
 app.use(express.static(  __dirname + '/static'));
 
-var uristring = 'mongodb://professorStatsUser:Passw0rd!@ds031902.mongolab.com:31902/professor-stats';
+var uristring = 'mongodb://ruthless:ruthless!@ds031902.mongolab.com:31902/professor-stats';
 
 // Makes connection asynchronously. Mongoose will queue up database
 // operations and release them when the connection is complete.

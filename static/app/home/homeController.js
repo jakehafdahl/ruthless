@@ -4,8 +4,9 @@
 	
 	var homeContoller = function($scope, articleService){
 		var vm = this;
-		articleService.frontPageArticles().then(function(articles){
-			vm.articles = articles;
+		articleService.frontPageArticles().then(function(pageData){
+			vm.featured = pageData.featured;
+			vm.articles = pageData.articles;
 		});
 	};
 	

@@ -1,8 +1,8 @@
 
 	<div class="jumbotron">
-  		<h1>Put featured article here</h1>
-  		<p>...</p>
-  		<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+  		<h1>{{homeView.featured.title}}</h1>
+  		<p>{{homeView.featured.summary}}</p>
+  		<p><a class="btn btn-primary btn-lg" ng-href="#/Article/{{homeView.featured._id}}" role="button">Read more</a></p>
   	</div>
 	<div ng-repeat="article in homeView.articles">
 		<article-card article='article'></article-card>

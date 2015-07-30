@@ -15,20 +15,22 @@ afterEach(function() {
      httpBackend.verifyNoOutstandingRequest();
    });
 
-it('should return a list of articles from the server when frontPageArticles is called', function () {
-	var articlesObject = [
-		{
+it('should return a front page object from the server when frontPageArticles is called', function () {
+	var articlesObject = {
+		featured: {
 			title: "test1"
 		},
-		{
-			title: "test2"
-		}
-	];
-	httpBackend.expect('GET','/articles').respond(articlesObject);
+		articles:[
+			{
+				title: "test2"
+			}
+		]
+	};
+	httpBackend.expect('GET','/frontpage').respond(articlesObject);
 	articleService.frontPageArticles().then(function(response){
-		expect(response.length).toEqual(2);	
-		expect(response[0].title).toEqual("test1");	
-		expect(response[1].title).toEqual("test2");	
+		expect(response.articles.length).toEqual(1);	
+		expect(response.featured.title).toEqual("test1");	
+		expect(response.articles[0].title).toEqual("test2");	
 	});
 	httpBackend.flush();
 });

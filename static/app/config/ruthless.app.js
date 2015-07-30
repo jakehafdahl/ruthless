@@ -2,5 +2,5 @@
 
 (function(angular){
 
-	angular.module('ruthless',[ 'ngResource','ui.router', 'ui.bootstrap']);	
+	angular.module('ruthless',[ 'ngResource', 'ngSanitize','ui.router', 'ui.bootstrap']);	
 }(angular))

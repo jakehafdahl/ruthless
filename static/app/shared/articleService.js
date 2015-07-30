@@ -3,10 +3,17 @@
 (function(module){
 	var articleService = function($resource, serverConfig){
 		
-		var Articles = $resource(serverConfig.articles + '/:id');
+		var Articles = $resource(serverConfig.articles + '/:id', {}, 
+			{
+				'frontPage':  {method:'GET', isArray: false}
+			});
+		var FrontPage = $resource('/frontpage/:id', {}, 
+			{
+				'frontPage':  {method:'GET', isArray: false}
+			}); 
 		
 		var frontPageArticles = function(params){
-			return Articles.query(params).$promise;
+			return FrontPage.frontPage(params).$promise;
 		};
 		
 		var getArticles = function(params){

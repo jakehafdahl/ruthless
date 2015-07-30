@@ -7,7 +7,9 @@ var articleSchema = new Schema({
     title: String,     
     author: String,
     summary: String,
-    content: String
+    content: String,
+    views: {type: Number, default: 0},
+    created: { type: Date, default: Date.now }
 });
 
 var ArticlesModel = mongoose.model('articles', articleSchema);
@@ -26,11 +28,24 @@ model.registerArticlesApi = function(app){
 	})
     .get('/articles/:id', function(req,res){
       // validate that is it a valid id before executing
-	    ArticlesModel.findById( req.params.id,function(err, article) {
+	    ArticlesModel.findOneAndUpdate( {_id: req.params.id}, { $inc: { views: 1 }}).exec(function(err, article) {
           if (err) return console.error(err);
 		      //TODO: check if this is premium content and obscure for non-premium users  
 	      res.json(article);
         });
-        
+	})
+    .get('/frontpage', function(req,res){
+	    ArticlesModel.find({},'title author summary')
+        .sort('created views')
+        .exec(function(err, articles) {
+          if (err) return console.error(err);
+          
+          var frontPageObject = {
+              featured: articles.shift(),
+              articles: articles
+          };
+          
+	      res.json(frontPageObject);
+        });
 	});
 }

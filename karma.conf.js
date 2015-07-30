@@ -19,6 +19,7 @@ module.exports = function(config) {
       'static/bower_components/angular-ui-router/release/angular-ui-router.js',
       'static/bower_components/angular-bootstrap/ui-bootstrap.js',
       'static/bower_components/angular-resource/angular-resource.js',
+      'static/bower_components/angular-sanitize/angular-sanitize.js',
       'static/bower_components/angular-mocks/angular-mocks.js',
       'static/app/config/ruthless.app.js',
       'static/app/config/routes.js',
@@ -65,7 +66,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
