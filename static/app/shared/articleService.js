@@ -9,8 +9,13 @@
 			return Articles.query(params).$promise;
 		};
 		
+		var getArticles = function(params){
+			return Articles.query(params).$promise;
+		};
+		
 		return {
-			frontPageArticles : frontPageArticles
+			frontPageArticles : frontPageArticles,
+			getArticles : getArticles
 		};
 	};
 	

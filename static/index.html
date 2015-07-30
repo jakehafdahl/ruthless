@@ -10,8 +10,14 @@
 	<body class="ng-cloak">
 		
 		<ng-include src='"app/partials/nav.html"'></ng-include>
-		<div class="container">
-			<ui-view></ui-view>
+		<div class="row">
+			<div class="col-md-1 col-s-12"></div>
+			<div class="col-md-9 col-sm-12">
+				<div class="container-fluid">
+					<ui-view></ui-view>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-12"></div>
 		</div>
 		
 		<script type="text/javascript" src="bower_components/angular/angular.min.js" ></script>
@@ -21,6 +27,8 @@
 		<script type="text/javascript" src="app/config/ruthless.app.js"></script>
 		<script type="text/javascript" src="app/config/routes.js"></script>
     	<script type="text/javascript" src="app/config/serverConfig.js"></script>
+		<script type="text/javascript" src="app/articles/articlesController.js"></script>
+		<script type="text/javascript" src="app/article/articleController.js"></script>
 		<script type="text/javascript" src="app/home/homeController.js"></script>
     	<script type="text/javascript" src="app/shared/articleService.js"></script>
 		<script type="text/javascript" src="app/shared/articleCard.js"></script>
