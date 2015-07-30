@@ -4,7 +4,7 @@
   "description": "Trying out the MEAN stack",
   "main": "server.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "./node_modules/bower/bin/bower install | grunt test"
   },
   "repository": {
     "type": "git",
