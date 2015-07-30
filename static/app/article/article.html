@@ -1,1 +1,9 @@
-<h1>{{articleView.message}}</h1>
+<div class="jumbotron">
+	<h3>{{articleView.article.title}}</h3>
+	<h6>By: {{articleView.article.author}}</h6>
+</div>
+<div class="panel panel-default">
+	<div class="panel-body">
+		{{articleView.article.content}}
+	</div>
+</div>

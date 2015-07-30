@@ -4,7 +4,11 @@
 	var articleController = function(articleService, $stateParams){
 		var vm = this;
 		
-		vm.message = $stateParams.id;
+		var id = $stateParams.id;
+		
+		articleService.get(id).then(function(article){
+			vm.article = article;
+		});
 	};
 	
 	module.controller('articleController', ['articleService', '$stateParams', articleController]);

@@ -13,9 +13,14 @@
 			return Articles.query(params).$promise;
 		};
 		
+		var get = function(id){
+			return Articles.get({id:id}).$promise;
+		};
+		
 		return {
 			frontPageArticles : frontPageArticles,
-			getArticles : getArticles
+			getArticles : getArticles,
+			get:get
 		};
 	};
 	

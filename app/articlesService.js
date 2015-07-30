@@ -24,7 +24,7 @@ model.registerArticlesApi = function(app){
         });
         
 	})
-    .get('/article/:id', function(req,res){
+    .get('/articles/:id', function(req,res){
       // validate that is it a valid id before executing
 	    ArticlesModel.findById( req.params.id,function(err, article) {
           if (err) return console.error(err);
