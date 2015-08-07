@@ -53,4 +53,25 @@ it('should return a list of articles from the server when getArticles is called'
 	httpBackend.flush();
 });
 
+it('should retrieve an article from the public api when not logged in', function () {
+	var articlesObject = 
+		{
+			title: "test1"
+		};
+	httpBackend.expect('GET','/articles/1').respond(articlesObject);
+	articleService.get('1', { isAuth: false}).then(function(response){
+	});
+	httpBackend.flush();
+});
+
+it('should retrieve an article from the premium api when not logged in', function () {
+	var articlesObject = 
+		{
+			title: "test1"
+		};
+	httpBackend.expect('GET','/premium/articles/1').respond(articlesObject);
+	articleService.get('1', { isAuth: true}).then(function(response){
+	});
+	httpBackend.flush();
+});
 });

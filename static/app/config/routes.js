@@ -25,6 +25,12 @@
                 templateUrl: "app/article/article.html",
                 controller: "articleController",            
                 controllerAs: 'articleView'
+            })
+            .state('premiumArticle', {
+                url: "/Premium/Article/:id",
+                templateUrl: "app/article/article.html",
+                controller: "premiumArticleController",            
+                controllerAs: 'articleView'
             });
 	}])	
 }(angular.module('ruthless')))

@@ -15,5 +15,11 @@ model.registerUserRegistrationApi = function(app){
           });
         
         console.log(req.body);
-	});
+	})
+        .get('/user', app.oauth.authorise(), function (req, res) {
+          UsersModel.findById(req.user.id, 'username _id email',function(err, user){
+            if (err) return console.error(err);
+            res.json(user);
+          });
+        });
 }

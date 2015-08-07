@@ -1,0 +1,29 @@
+<form ng-submit="$close(credentials)">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Sign In</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input ng-disabled="pending" ng-model="credentials.username" type="search" class="form-control" placeholder="Enter Username" required />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input ng-disabled="pending" ng-model="credentials.password" type="password" class="form-control" placeholder="Password" required />
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="credentials.rememberMe"/> Remember Me
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="$dismiss()" ng-disabled="pending">Cancel</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="pending">Sign In</button>
+    </div>
+</form>

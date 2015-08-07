@@ -8,12 +8,13 @@ var oauthserver = require('oauth2-server');
 var oauthmodels = require('./model/model');
 
 var articleService = require('./app/articlesService')
-var registrationService = require('./app/registerService')
+var userService = require('./app/userService')
 
 app.use(less_middleware( __dirname + '/static'));
-app.use(express.static(  __dirname + '/static'));
+app.use(express.static( __dirname + '/static'));
+app.use('/fonts',express.static( __dirname + '/static/bower_components/bootstrap/fonts'));
 
-var uristring = 'mongodb://ruthless:ruthless.mongolab.com:31902/professor-stats';
+var uristring = 'mongodb://ruthless:ruthless@ds031902.mongolab.com:31902/professor-stats';
 
 // Makes connection asynchronously. Mongoose will queue up database
 // operations and release them when the connection is complete.
@@ -40,7 +41,7 @@ app.use(function(req,res,next){
   next();
 });
   
-app.all('/oauth/token', app.oauth.grant());
+app.all('/login', app.oauth.grant());
 
 //app.get('/secret', app.oauth.authorise(), function (req, res) {
 //  res.send('Secret area');
@@ -53,4 +54,4 @@ http.listen(8080,function(){
 });
 
 articleService.registerArticlesApi(app);
-registrationService.registerUserRegistrationApi(app);
+userService.registerUserRegistrationApi(app);

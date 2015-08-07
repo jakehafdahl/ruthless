@@ -5,7 +5,8 @@
 		
 		var Articles = $resource(serverConfig.articles + '/:id', {}, 
 			{
-				'frontPage':  {method:'GET', isArray: false}
+				'frontPage':  {method:'GET', isArray: false},
+				'getPremium': {method:'GET', isArray: false, url: '/premium/articles/:id'}
 			});
 		var FrontPage = $resource('/frontpage/:id', {}, 
 			{
@@ -20,14 +21,18 @@
 			return Articles.query(params).$promise;
 		};
 		
-		var get = function(id){
-			return Articles.get({id:id}).$promise;
+		var get = function(id, user){
+			if(user.isAuth){	
+				return Articles.getPremium({id:id}).$promise;
+			}else{	
+				return Articles.get({id:id}).$promise;
+			}
 		};
 		
 		return {
 			frontPageArticles : frontPageArticles,
 			getArticles : getArticles,
-			get:get
+			get : get
 		};
 	};
 	

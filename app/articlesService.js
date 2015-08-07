@@ -7,6 +7,7 @@ var articleSchema = new Schema({
     title: String,     
     author: String,
     summary: String,
+    ispremium: Boolean,
     content: String,
     views: {type: Number, default: 0},
     created: { type: Date, default: Date.now }
@@ -19,7 +20,7 @@ var ArticlesModel = mongoose.model('articles', articleSchema);
 
 model.registerArticlesApi = function(app){
 	app.get('/articles',function(req,res){
-	    ArticlesModel.find({},'title author summary',function(err, article) {
+	    ArticlesModel.find({},'title author summary ispremium',function(err, article) {
           if (err) return console.error(err);
           
 	      res.json(article);
@@ -31,10 +32,20 @@ model.registerArticlesApi = function(app){
 	    ArticlesModel.findOneAndUpdate( {_id: req.params.id}, { $inc: { views: 1 }}).exec(function(err, article) {
           if (err) return console.error(err);
 		      //TODO: check if this is premium content and obscure for non-premium users  
+              if(article.ispremium){
+                  article.content = article.content.substring(0,500) + '</br><h1>This is Premium Content, Log in the view the rest!</h1>';
+              }
 	      res.json(article);
         });
 	})
-    .get('/frontpage', function(req,res){
+    .get('/premium/articles/:id', app.oauth.authorise(),function(req,res){
+        // validate that is it a valid id before executing
+	    ArticlesModel.findOneAndUpdate( {_id: req.params.id}, { $inc: { views: 1 }}).exec(function(err, article) {
+          if (err) return console.error(err); 
+	      res.json(article);
+        });
+	})
+    .get('/frontPage', function(req,res){
 	    ArticlesModel.find({},'title author summary')
         .sort('created views')
         .exec(function(err, articles) {

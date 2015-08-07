@@ -3,7 +3,8 @@
 (function(module){
 	
 	var serverConfig = {
-		articles: '/articles'
+		articles: '/articles',
+		basicCreds: 'Basic amF2YXNjcmlwdDphYmMxMjM='
 	};
 	
 	module.value('serverConfig', serverConfig);
