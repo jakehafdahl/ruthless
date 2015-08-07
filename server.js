@@ -16,6 +16,9 @@ app.use('/fonts',express.static( __dirname + '/static/bower_components/bootstrap
 
 var uristring = 'mongodb://ruthless:ruthless@ds031902.mongolab.com:31902/professor-stats';
 
+
+app.set('port', (process.env.PORT || 8080));
+
 // Makes connection asynchronously. Mongoose will queue up database
 // operations and release them when the connection is complete.
 mongoose.connect(uristring, function (err, res) {
@@ -49,8 +52,8 @@ app.all('/login', app.oauth.grant());
 
 app.use(app.oauth.errorHandler());
 
-http.listen(8080,function(){
-	console.log("Connected and listening to port 8080");
+http.listen(app.get('port'),function(){
+	console.log("Connected and listening to port " + app.get('port'));
 });
 
 articleService.registerArticlesApi(app);

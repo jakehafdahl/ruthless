@@ -1,0 +1,9 @@
+<tr ng-class="ruleView.colorRule(rule.position)" >
+    <td>{{rule.position}}</td>
+    <td>{{ruleView.getDisplay(rule.field)}}</td>
+    <td>{{rule.pointsFor}}</td>
+    <td>{{rule.requiredPer}}</td>
+    <td>
+        <a ng-click="ruleView.removeRule(rule)" class="glyphicon glyphicon-remove"></a>
+    </td>
+</tr>

@@ -110,11 +110,7 @@ model.getUser = function (username, password, callback) {
 
   OAuthUsersModel.findOne({ username: username, password: password }, function(err, user) {
     if(err) return callback(err);
-    var userModel = {
-      id: user._id,
-      email: user.email,
-      username: user.username
-    };
+
     callback(null, user._id);
   });
 };

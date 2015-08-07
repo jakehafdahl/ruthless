@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Scoring Settings</div>
+	<div class="panel-body">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th colspan="7">
+                        <button class="btn btn-primary" ng-click="scoringSettingView.addNewRule()">
+                            <span class="glyphicon glyphicon-plus"></span>Add new scoring rule</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Position</th>
+                    <th>Applies to</th>
+                    <th>Point(s) Awarded</th>
+                    <th>Required to get</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <scoring-rule ng-repeat="rule in scoringSettingView.scoringRules | orderBy:['position','field'] : true" rule="rule" 
+                    ng-class="colorRule(rule.position)" ng-click="scoringSettingView.editRule(rule)">
+                </scoring-rule>
+            </tbody>
+        </table>
+</div>
+</div>
