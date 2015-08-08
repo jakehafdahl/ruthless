@@ -26,7 +26,7 @@ it('should return a front page object from the server when frontPageArticles is 
 			}
 		]
 	};
-	httpBackend.expect('GET','/frontpage').respond(articlesObject);
+	httpBackend.expect('GET','/articles/frontpage').respond(articlesObject);
 	articleService.frontPageArticles().then(function(response){
 		expect(response.articles.length).toEqual(1);	
 		expect(response.featured.title).toEqual("test1");	
