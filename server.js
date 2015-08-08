@@ -4,18 +4,18 @@ var http = require('http').Server(app); // Http server
 var bodyParser = require("body-parser"); // Require Body parser module
 var mongoose = require('mongoose'); // Require Mongoose for MongoDB access
 var less_middleware = require('less-middleware'); //LESS support for express
-var oauthserver = require('oauth2-server');
-var oauthmodels = require('./model/model');
+var oauthserver = require('./oauth/oauthconfig');
 
-var articleService = require('./app/articlesService')
-var userService = require('./app/userService')
+var articleController = require('./controllers/articlesController');
+var userController = require('./controllers/userController');
+var projectionController = require('./controllers/projectionController');
+var premiumController = require('./controllers/premiumController');
 
 app.use(less_middleware( __dirname + '/static'));
 app.use(express.static( __dirname + '/static'));
 app.use('/fonts',express.static( __dirname + '/static/bower_components/bootstrap/fonts'));
 
 var uristring = 'mongodb://ruthless:ruthless@ds031902.mongolab.com:31902/professor-stats';
-
 
 app.set('port', (process.env.PORT || 8080));
 
@@ -29,12 +29,6 @@ mongoose.connect(uristring, function (err, res) {
   }
 });
 
-app.oauth = oauthserver({
-  model: oauthmodels,
-  grants: ['password'],
-  debug: true
-});
-
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json()); // Body parser use JSON data
 app.use(function(req,res,next){
@@ -44,17 +38,19 @@ app.use(function(req,res,next){
   next();
 });
   
-app.all('/login', app.oauth.grant());
+app.all('/login', oauthserver.oauth.grant());
 
 //app.get('/secret', app.oauth.authorise(), function (req, res) {
 //  res.send('Secret area');
 //});
 
-app.use(app.oauth.errorHandler());
+app.use(oauthserver.oauth.errorHandler());
 
 http.listen(app.get('port'),function(){
 	console.log("Connected and listening to port " + app.get('port'));
 });
 
-articleService.registerArticlesApi(app);
-userService.registerUserRegistrationApi(app);
+app.use('/user', userController);
+app.use('/articles', articleController);
+app.use('/projections', projectionController);
+app.use('/premium', premiumController);

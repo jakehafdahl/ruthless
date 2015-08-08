@@ -18,9 +18,9 @@
                 </tr>
             </thead>
             <tbody>
-                <scoring-rule ng-repeat="rule in scoringSettingView.scoringRules | orderBy:['position','field'] : true" rule="rule" 
-                    ng-class="colorRule(rule.position)" ng-click="scoringSettingView.editRule(rule)">
-                </scoring-rule>
+                <tr scoring-rule ng-repeat="rule in scoringSettingView.scoringRules | orderBy:['position','field'] : true" rule="rule" 
+                    ng-click="scoringSettingView.editRule(rule)" ng-class="scoringSettingView.colorRule(rule.position)" >
+                </tr>
             </tbody>
         </table>
 </div>

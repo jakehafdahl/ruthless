@@ -5,16 +5,12 @@
 		
 		var Articles = $resource(serverConfig.articles + '/:id', {}, 
 			{
-				'frontPage':  {method:'GET', isArray: false},
+				'frontPage':  {method:'GET', isArray: false, url: '/articles/frontpage'},
 				'getPremium': {method:'GET', isArray: false, url: '/premium/articles/:id'}
 			});
-		var FrontPage = $resource('/frontpage/:id', {}, 
-			{
-				'frontPage':  {method:'GET', isArray: false}
-			}); 
 		
 		var frontPageArticles = function(params){
-			return FrontPage.frontPage(params).$promise;
+			return Articles.frontPage(params).$promise;
 		};
 		
 		var getArticles = function(params){

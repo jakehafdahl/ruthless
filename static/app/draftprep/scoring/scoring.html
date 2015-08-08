@@ -1,6 +1,17 @@
-<div class="row">
-	<roster-settings roster="scoringView.roster"></roster-settings>
+<div class="row ">
+    <div role="group" class="btn-group col-sm-6 col-sm-offset-4">
+        <button type="button" ng-disabled="!scoringView.user.isAuth" class="btn btn-primary" ng-click="scoringView.saveScoringSettings()">Save Scoring Settings</button>
+        <button type="button" class="btn btn-default" ng-click="scoringView.loadScoringSettings()">Load Saved Scoring Settings</button>
+    </div>
+    <div class="col-sm-2 form-group">
+        <button id="goProjections" type="button" class="btn btn-primary form-control" ui-sref="draftprep.project" data-container="body">
+            Edit Projections
+        </button>
+    </div>
 </div>
 <div class="row">
-	<scoring-settings scoring-rules="scoringView.scoringRules"></scoring-settings>
+    <roster-settings roster="scoringView.roster"></roster-settings>
+</div>
+<div class="row">
+    <scoring-settings scoring-rules="scoringView.scoringRules"></scoring-settings>
 </div>

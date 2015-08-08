@@ -1,1 +1,18 @@
-<h1>Projections</h1>
+<div class="row">
+    <div class="col-sm-2 form-group">
+        <button type="button" class="btn btn-primary form-control" ui-sref="draftprep.scoring" >
+            Back: Scoring
+            </button>
+    </div>
+    <div role="group" class="btn-group col-sm-6 col-sm-offset-2">
+        <button type="button" ng-disabled="!projectView.user.isAuth" class="btn btn-primary" ng-click="projectView.saveProjections()">Save Projection
+            <span class="glyphicon glyphicon-floppy-save"></span>
+        </button>
+        <button type="button" class="btn btn-default" ng-click="loadProjections()">Load Saved Projection</button>
+    </div>
+    <div class="col-sm-2 form-group">
+        <button type="button" class="btn btn-primary form-control" ui-sref="draftprep.generate">
+            Next: See Cheatsheet
+        </button>
+    </div>
+</div>

@@ -11,7 +11,7 @@
         var userResource = $resource('/user/:id', null,
             {
                 register: {
-                    url: '/register',
+                    url: '/user/register',
                     method: 'POST'
                 },
                 login: {
