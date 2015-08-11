@@ -16,3 +16,14 @@
         </button>
     </div>
 </div>
+<div class="row">
+    <!-- do tabs and create tableProps for each position for display -->
+    <!-- should make this a directive -->
+    
+  <tabset>
+    <tab ng-repeat="(key, value) in projectView.tables" heading="{{value.title}}">
+        <div ng-include="'app/draftprep/projections/player-table.html'"></div>
+    </tab>
+  </tabset>
+    <!--<div ng-include="'app/draftprep/projections/player-table.html'"></div>-->
+</div>

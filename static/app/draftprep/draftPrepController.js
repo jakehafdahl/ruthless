@@ -1,7 +1,7 @@
 'use strict';
 
 (function(module){
-	var draftPrepController = function(){
+	var draftPrepController = function(projectionsService){
 		var vm = this;
 		
 		vm.roster = {
@@ -22,15 +22,125 @@
 		
 		vm.scoringRules = [
 			{
-				position: "RB",
-				field: "rushYards",
-				pointsFor: 1,
-				requiredPer: 10
-			}
+                    field: "rushyards",
+                    requiredPer: 10,
+                    pointsFor: 1,
+                    position: "RB"
+                },
+                {
+                    field: "rushtd",
+                    requiredPer: 1,
+                    pointsFor: 6,
+                    position: "RB"
+                },
+                {
+                    field: "receptionyards",
+                    requiredPer: 10,
+                    pointsFor: 1,
+                    position: "RB"
+                },
+                {
+                    field: "receptiontd",
+                    requiredPer: 1,
+                    pointsFor: 6,
+                    position: "RB"
+                },
+                {
+                    field: "rushyards",
+                    requiredPer: 10,
+                    pointsFor: 1,
+                    position: "WR"
+                },
+                {
+                    field: "rushtd",
+                    requiredPer: 1,
+                    pointsFor: 6,
+                    position: "WR"
+                },
+                {
+                    field: "receptionyards",
+                    requiredPer: 10,
+                    pointsFor: 1,
+                    position: "WR"
+                },
+                {
+                    field: "receptiontd",
+                    requiredPer: 1,
+                    pointsFor: 6,
+                    position: "WR"
+                },
+                {
+                    field: "receptionyards",
+                    requiredPer: 10,
+                    pointsFor: 1,
+                    position: "TE"
+                },
+                {
+                    field: "receptiontd",
+                    requiredPer: 1,
+                    pointsFor: 6,
+                    position: "TE"
+                },
+                {
+                    field: "rushyards",
+                    requiredPer: 10,
+                    pointsFor: 1,
+                    position: "QB"
+                },
+                {
+                    field: "rushtd",
+                    requiredPer: 1,
+                    pointsFor: 6,
+                    position: "QB"
+                },
+                {
+                    field: "passyards",
+                    requiredPer: 20,
+                    pointsFor: 1,
+                    position: "QB"
+                },
+                {
+                    field: "passtd",
+                    requiredPer: 1,
+                    pointsFor: 4,
+                    position: "QB"
+                },
+                {
+                    field: "interceptionsthrown",
+                    requiredPer: 1,
+                    pointsFor: -1,
+                    position: "QB"
+                },
+                {
+                    field: "xpmade",
+                    requiredPer: 1,
+                    pointsFor: 1,
+                    position: "K"
+                },
+                {
+                    field: "fgmade",
+                    requiredPer: 1,
+                    pointsFor: 3,
+                    position: "K"
+                },
+                {
+                    field: "sacks",
+                    requiredPer: 1,
+                    pointsFor: 1,
+                    position: "DST"
+                },
+                {
+                    field: "fumbles",
+                    requiredPer: 1,
+                    pointsFor: 2,
+                    position: "DST"
+                }
 		];
+		
+		vm.projections = projectionsService.getDefault();
 		
 	};
 	
-	module.controller('draftPrepController', [draftPrepController]);
+	module.controller('draftPrepController', ['projectionsService', draftPrepController]);
 	
 }(angular.module('ruthless')))

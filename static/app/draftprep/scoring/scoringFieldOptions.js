@@ -3,15 +3,15 @@
 
     module.value('scoringFieldOptions', [
             {
-                field: "rushAttempts",
+                field: "rushattempts",
                 fieldDisplay: "Rush Attempts"
             },
             {
-                field: "rushYards",
+                field: "rushyards",
                 fieldDisplay: "Rush Yards"
             },
             {
-                field: "rushTd",
+                field: "rushtd",
                 fieldDisplay: "Rush Touchdowns"
             },
             {
@@ -19,51 +19,51 @@
                 fieldDisplay: "Receptions"
             },
             {
-                field: "receptionYards",
+                field: "receptionyards",
                 fieldDisplay: "Receiving Yards"
             },
             {
-                field: "receptionTd",
+                field: "receptiontd",
                 fieldDisplay: "Receiving Touchdowns"
             },
             {
-                field: "passAttempts",
+                field: "passattempts",
                 fieldDisplay: "Pass Attempts"
             },
             {
-                field: "passCompletions",
+                field: "passcompletions",
                 fieldDisplay: "Pass Completions"
             },
             {
-                field: "passYards",
+                field: "passyards",
                 fieldDisplay: "Passing Yards"
             },
             {
-                field: "passTd",
+                field: "passtd",
                 fieldDisplay: "Pass Touchdowns"
             },
             {
-                field: "interceptionsThrown",
+                field: "interceptionsthrown",
                 fieldDisplay: "Interceptions Thrown"
             },
             {
-                field: "fgAttempts",
+                field: "fgattempts",
                 fieldDisplay: "Field Goal Attempts"
             },
             {
-                field: "fgMade",
+                field: "fgmade",
                 fieldDisplay: "Field Goals Made"
             },
             {
-                field: "xpMade",
+                field: "xpmade",
                 fieldDisplay: "Extra Points Made"
             },
             {
-                field: "pointsAllowed",
+                field: "pointsallowed",
                 fieldDisplay: "Points Allowed"
             },
             {
-                field: "yardsAllowed",
+                field: "yardsallowed",
                 fieldDisplay: "Yards Allowed"
             },
             {

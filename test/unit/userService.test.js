@@ -1,4 +1,4 @@
-describe('articleService', function() {
+describe('userService', function() {
 
 beforeEach(module('ruthless'));
 

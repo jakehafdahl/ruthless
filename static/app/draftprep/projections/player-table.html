@@ -1,0 +1,28 @@
+<table class="table table-striped table-condensed table-bordered">
+	<thead>
+		<tr>
+			<th>
+				Name
+			</th>
+			<th ng-repeat="column in value.columns">
+				{{column.name}}
+			</th>
+			<th>
+				Edit Player
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="player in projectView.projections.players | filter: { position: key }">
+			<td>{{player.name}}</td>
+			<td ng-repeat="column in value.columns">
+				{{player[column.field]}}
+			</td>
+			<td>
+				<button ng-click="projectView.editPlayer(player)" class="btn btn-sm btn-success">
+					<span class="glyphicon glyphicon-edit"></span>
+				</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
