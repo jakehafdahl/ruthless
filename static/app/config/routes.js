@@ -44,7 +44,7 @@
             })
             .state('draftprep', {
                 url: "/draftprep",
-                templateUrl: "app/draftprep/draftprep.html",
+                templateUrl: "app/draftprep/draft-prep.html",
                 controller: "draftPrepController",            
                 controllerAs: 'prepView'
             })
