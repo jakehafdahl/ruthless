@@ -135,7 +135,7 @@
                     pointsFor: 2,
                     position: "DST"
                 }
-		];
+		];    
 		
 		vm.projections = projectionsService.getDefault();
 		

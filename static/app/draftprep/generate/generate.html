@@ -8,4 +8,39 @@
         </button>
     </div>
 </div>
-<h1>Generate</h1>
+<div class="row">
+    <div class="col-sm-9">
+        <div ng-repeat="position in generateView.positions" class="col-sm-3 cheat-sheet">
+            <table class="table table-condensed table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>{{position.positionDisplay}}</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="player in generateView.projections.players | filter: {position: position.position} | orderBy: 'fantasyPoints' : true">
+                        <td>{{$index + 1}}. {{player.name}}</td>
+                        <td>{{player.fantasyPoints | number:0}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-sm-3 cheat-sheet">
+        <table class="table table-condensed table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Overall</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="player in generateView.projections.players | orderBy: 'vbd' : true | limitTo: 50">
+                    <td>{{$index + 1}}. {{player.name}}</td>
+                    <td>{{player.vbd | number:0 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
