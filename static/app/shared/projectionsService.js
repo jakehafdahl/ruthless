@@ -5,7 +5,7 @@
 		
 		var Projections = $resource('/projections', null,{
 			defaults: {
-                    url: '/projections',
+                    url: '/projections/default',
                     method: 'GET',
 					isArray: false
                 }			

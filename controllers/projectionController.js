@@ -19,7 +19,19 @@ var playerSchema = new Schema({
 	rushtd: Number,
 	receptions: Number,
 	receptionyards: Number,
-	receptiontd: Number
+	receptiontd: Number,
+	xpmade: Number,
+	fgattempts: Number,
+	fgmade: Number,
+	over30: Number,
+	over40: Number,
+	over50: Number,
+	ptsAllowed: Number,
+	yardsAllowed: Number,
+	sacks: Number,
+	interceptions: Number,
+	fumblesRecovered: Number,
+	touchdowns: Number
 });
 
 var projectionSchema = new Schema({
@@ -31,7 +43,7 @@ var projectionSchema = new Schema({
 
 var ProjectionsModel = mongoose.model('projections', projectionSchema);
 
-router.get('/', function (req, res) {
+router.get('/default', function (req, res) {
 	ProjectionsModel.findOne({ ispublic: true, name: "Default" }, function (err, projection) {
 		if (err) return console.error(err);
 

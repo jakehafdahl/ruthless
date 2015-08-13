@@ -130,7 +130,7 @@
                     position: "DST"
                 },
                 {
-                    field: "fumbles",
+                    field: "fumblesRecovered",
                     requiredPer: 1,
                     pointsFor: 2,
                     position: "DST"

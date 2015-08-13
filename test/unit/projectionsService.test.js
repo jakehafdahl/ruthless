@@ -21,7 +21,7 @@ it('should call the projections default when getDefault is called', function () 
 		name: 'test'	
 	};
 	
-	httpBackend.expectGET('/projections').respond(projection);
+	httpBackend.expectGET('/projections/default').respond(projection);
 	projectionsService.getDefault().$promise.then(function(response){
 		expect(response.name).toBe(projection.name);
 	});

@@ -59,15 +59,15 @@
                 fieldDisplay: "Extra Points Made"
             },
             {
-                field: "pointsallowed",
+                field: "pointsAllowed",
                 fieldDisplay: "Points Allowed"
             },
             {
-                field: "yardsallowed",
+                field: "yardsAllowed",
                 fieldDisplay: "Yards Allowed"
             },
             {
-                field: "fumbles",
+                field: "fumblesRecovered",
                 fieldDisplay: "Fumbles Recovered"
             },
             {
@@ -75,8 +75,24 @@
                 fieldDisplay: "Sacks"
             },
             {
-                field: "td",
+                field: "touchdowns",
                 fieldDisplay: "Defense/Special Teams Touchdowns"
+            },
+            {
+                field: "interceptions",
+                fieldDisplay: "Interceptions"
+            },
+            {
+                field: "over30",
+                fieldDisplay: "Bonus for 30+ Yard Field Goals"
+            },
+            {
+                field: "over40",
+                fieldDisplay: "Bonus for 40+ Yard Field Goals"
+            },
+            {
+                field: "over50",
+                fieldDisplay: "Bonus for 50+ Yard Field Goals"
             }
     ]);
 }(angular.module('ruthless')))
