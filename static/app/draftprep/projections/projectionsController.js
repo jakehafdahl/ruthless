@@ -1,7 +1,7 @@
 'use strict';
 
 (function (module) {
-	var projectionsController = function ($scope, projectionsService, scoringFieldOptions, positionFieldOptions, updatePlayer) {
+	var projectionsController = function ($scope, scoringFieldOptions, positionFieldOptions, updatePlayer) {
 		var vm = this;
 		vm.scoringRules = $scope.prepView.scoringRules;
 
@@ -48,5 +48,5 @@
 		};
 	};
 
-	module.controller('projectionsController', ['$scope', 'projectionsService', 'scoringFieldOptions', 'positionFieldOptions', 'updatePlayer', projectionsController]);
+	module.controller('projectionsController', ['$scope', 'scoringFieldOptions', 'positionFieldOptions', 'updatePlayer', projectionsController]);
 }(angular.module('ruthless')))

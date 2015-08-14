@@ -58,7 +58,7 @@
                             email: data.email
                         }
                     );
-                    if (rememberMe) {
+                    if (user.rememberMe) {
                         localStorageService.cookie.set("authorizationData",
                             {
                                 token: token.access_token,

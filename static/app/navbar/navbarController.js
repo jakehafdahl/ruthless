@@ -9,7 +9,7 @@
 		this.signOn = function(){
 			authenticate().then(function(credentials){
 				console.log(credentials.username);
-				userService.login(credentials, true)
+				userService.login(credentials)
 			});
 		};
 	};

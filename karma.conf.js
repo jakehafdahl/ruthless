@@ -28,6 +28,7 @@ module.exports = function(config) {
       'static/app/config/serverConfig.js',
       'static/app/home/*.js',
       'static/app/shared/*.js',
+      'static/app/draftprep/**/*.js',
       'test/unit/*.js'
     ],
 
