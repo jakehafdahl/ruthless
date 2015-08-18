@@ -4,7 +4,7 @@ var http = require('http').Server(app); // Http server
 var bodyParser = require("body-parser"); // Require Body parser module
 var mongoose = require('mongoose'); // Require Mongoose for MongoDB access
 var less_middleware = require('less-middleware'); //LESS support for express
-var oauthserver = require('./oauth/oauthconfig');
+var auth = require('./middleware/oauthconfig');
 
 var articleController = require('./controllers/articlesController');
 var userController = require('./controllers/userController');
@@ -38,13 +38,13 @@ app.use(function(req,res,next){
   next();
 });
   
-app.all('/login', oauthserver.oauth.grant());
+app.all('/login', auth.grant());
 
 //app.get('/secret', app.oauth.authorise(), function (req, res) {
 //  res.send('Secret area');
 //});
 
-app.use(oauthserver.oauth.errorHandler());
+app.use(auth.errorHandler());
 
 http.listen(app.get('port'),function(){
 	console.log("Connected and listening to port " + app.get('port'));

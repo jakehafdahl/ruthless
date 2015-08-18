@@ -1,7 +1,7 @@
 var express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'),
-    oauthserver = require('../oauth/oauthconfig');
+    auth = require('../middleware/oauthconfig');
 
 var UsersModel = mongoose.model('OAuthUsers');
 
@@ -18,7 +18,7 @@ router.post('/register', function (req, res) {
 
     console.log(req.body);
     })
-router.get('/', oauthserver.oauth.authorise(), function (req, res) {
+router.get('/', auth.authorise(), function (req, res) {
         UsersModel.findById(req.user.id, 'username _id email', function (err, user) {
             if (err) return console.error(err);
             res.json(user);
