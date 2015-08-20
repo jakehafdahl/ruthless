@@ -1,65 +1,17 @@
 var express = require('express'),
     router = express.Router(),
-    mongoose = require('mongoose');
-
-
-var Schema = mongoose.Schema;
-
-var playerSchema = new Schema({
-	name: String,
-	position: String,
-	team: String,
-	passcompletions: Number,
-	passattempts: Number,
-	passyards: Number,
-	passtd: Number,
-	interceptionsthrown: Number,
-	rushattempts: Number,
-	rushyards: Number,
-	rushtd: Number,
-	receptions: Number,
-	receptionyards: Number,
-	receptiontd: Number,
-	xpmade: Number,
-	fgattempts: Number,
-	fgmade: Number,
-	over30: Number,
-	over40: Number,
-	over50: Number,
-	ptsAllowed: Number,
-	yardsAllowed: Number,
-	sacks: Number,
-	interceptions: Number,
-	fumblesRecovered: Number,
-	touchdowns: Number
-});
-
-var projectionSchema = new Schema({
-    name: String,
-	ispublic: Boolean,
-	players: [playerSchema],
-    created: { type: Date, default: Date.now }
-});
-
-var ProjectionsModel = mongoose.model('projections', projectionSchema);
+    ProjectionsRepo = require('../db/db').projections;
 
 router.get('/default', function (req, res) {
-	ProjectionsModel.findOne({ ispublic: true, name: "Default" }, function (err, projection) {
-		if (err) return console.error(err);
-
+	ProjectionsRepo.getDefault().then(function (projection) {
 		res.json(projection);
 	});
-
 });
+
 router.get('/:id', function (req, res) {
 	// validate that is it a valid id before executing
-	ProjectionsModel.findOneAndUpdate({ _id: req.params.id }, { $inc: { views: 1 } }).exec(function (err, article) {
-		if (err) return console.error(err);
-		      //TODO: check if this is premium content and obscure for non-premium users  
-		if (article.ispremium) {
-			article.content = article.content.substring(0, 500) + '</br><h1>This is Premium Content, Log in the view the rest!</h1>';
-		}
-		res.json(article);
+	ProjectionsRepo.getProjectionById(req.params.id).then(function (projection) {
+		res.json(projection);
 	});
 });
 

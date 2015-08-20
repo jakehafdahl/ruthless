@@ -1,5 +1,5 @@
 var oauthserver = require('oauth2-server'),	
-  oauthmodels = require('../model/model'),
+  oauthmodels = require('./oauth2-model'),
   model = module.exports;
   
   model.grant = function(){

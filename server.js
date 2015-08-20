@@ -2,8 +2,8 @@ var express   = require('express'); // Require Express module
 var app = express();
 var http = require('http').Server(app); // Http server
 var bodyParser = require("body-parser"); // Require Body parser module
-var mongoose = require('mongoose'); // Require Mongoose for MongoDB access
 var less_middleware = require('less-middleware'); //LESS support for express
+var models = require('./model/model'); // set up model schemas
 var auth = require('./middleware/oauthconfig');
 
 var articleController = require('./controllers/articlesController');
@@ -15,19 +15,7 @@ app.use(less_middleware( __dirname + '/static'));
 app.use(express.static( __dirname + '/static'));
 app.use('/fonts',express.static( __dirname + '/static/bower_components/bootstrap/fonts'));
 
-var uristring = 'mongodb://ruthless:ruthless@ds031902.mongolab.com:31902/professor-stats';
-
 app.set('port', (process.env.PORT || 8080));
-
-// Makes connection asynchronously. Mongoose will queue up database
-// operations and release them when the connection is complete.
-mongoose.connect(uristring, function (err, res) {
-  if (err) {
-    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
-  } else {
-    console.log ('Succeeded connected to: ' + uristring);
-  }
-});
 
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json()); // Body parser use JSON data
@@ -39,10 +27,6 @@ app.use(function(req,res,next){
 });
   
 app.all('/login', auth.grant());
-
-//app.get('/secret', app.oauth.authorise(), function (req, res) {
-//  res.send('Secret area');
-//});
 
 app.use(auth.errorHandler());
 

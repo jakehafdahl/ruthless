@@ -78,7 +78,7 @@
             var authData = localStorageService.cookie.get('authorizationData');
             if (authData) {
                 localUser.isAuth = true;
-                localUser.username = authData.userName;
+                localUser.username = authData.username;
                 localUser.id = authData.id;
             }
 
